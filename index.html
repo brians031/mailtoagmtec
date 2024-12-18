@@ -7,16 +7,24 @@
 </head>
 <body>
   <script>
-    // Ouvre la boîte mail
-    var mailtoLink = "mailto:contact@agm-tec.com?subject=demande%20de%20contact&body=Bonjour,%0D%0A%0D%0AJe%20suis%20intéressé%20et%20je%20souhaiterai%20obtenir%20plus%20d’informations%20concernant%20votre%20matériel.%0D%0A%0D%0AMerci%20de%20me%20contacter%0D%0APar%20téléphone%20:%20%200561429063%0D%0APar%20mail%20:%20contact@agm-tec.com";
+    // Lorsque la page est chargée
+    document.addEventListener('DOMContentLoaded', function() {
+      // Lien mailto: avec l'objet et le corps prérempli
+      var mailtoLink = "mailto:contact@agm-tec.com?subject=demande%20de%20contact&body=Bonjour,%0D%0A%0D%0AJe%20suis%20intéressé%20et%20je%20souhaiterai%20obtenir%20plus%20d’informations%20concernant%20votre%20matériel.%0D%0A%0D%0AMerci%20de%20me%20contacter%0D%0APar%20téléphone%20:%20%200561429063%0D%0APar%20mail%20:%20contact@agm-tec.com";
+      
+      // Ouvre l'application de messagerie avec le lien mailto
+      var newWindow = window.open(mailtoLink, "_blank", "width=1,height=1,top=-1000,left=-1000");
 
-    // Ouvre une fenêtre pop-up invisible (très petite taille)
-    var newWindow = window.open(mailtoLink, "_blank", "width=1,height=1,top=-1000,left=-1000");
+      // Si la fenêtre pop-up est ouverte, on peut afficher un message
+      if (newWindow) {
+        setTimeout(function() {
+          alert("L'email a été ouvert. Vous pouvez maintenant fermer cette page.");
+        }, 1000); // Affiche après 1 seconde
+      }
 
-    // Affiche un message d'information à l'utilisateur après 1 seconde
-    setTimeout(function() {
-      alert("Toute l'équipe AGM-TEC vous remercie de l'avoir contacté");
-    }, 1000);  // Affiche après 1 seconde
+      // Ferme la page courante
+      window.close();
+    });
   </script>
 </body>
 </html>
