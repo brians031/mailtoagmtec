@@ -3,12 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ma page JavaScript</title>
+  <title>Redirection Email</title>
 </head>
 <body>
-  <h1>Bienvenue sur ma page JavaScript</h1>
-  
-  <!-- Le script sera exécuté dès que la page sera chargée -->
-  <script src="script.js"></script>
+  <script>
+    // Ouvre l'URL mailto: dans une nouvelle fenêtre sans interface visible
+    var mailtoLink = "mailto:contact@agm-tec.com?subject=demande%20de%20contact&body=Bonjour,%0D%0A%0D%0AJe%20suis%20intéressé%20et%20je%20souhaiterai%20obtenir%20plus%20d’informations%20concernant%20votre%20matériel.%0D%0A%0D%0AMerci%20de%20me%20contacter%0D%0APar%20téléphone%20:%20%200561429063%0D%0APar%20mail%20:%20contact@agm-tec.com";
+
+    // Crée une fenêtre sans barre d'adresse
+    var newWindow = window.open(mailtoLink, "_blank", "width=1,height=1,top=-1000,left=-1000");
+
+    // Ferme la fenêtre de redirection (page courante)
+    window.close();
+  </script>
 </body>
 </html>
